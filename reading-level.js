@@ -3,7 +3,7 @@ const Tokenizer = require('sentence-tokenizer')
 
 exports.readingLevel = (text, full) => {
 
-  const tokenizer = new Tokenizer('Chuck')
+  const tokenizer = new Tokenizer('ChuckNorris')
   tokenizer.setEntry(text)
   
   const sentences = tokenizer.getSentences()
@@ -25,7 +25,7 @@ exports.readingLevel = (text, full) => {
 
     obj.words += words.length
     
-    // add in all the sullables
+    // count up all the syllables
     obj.syllables += words.reduce((total, word) => {
       return total += syllable(word)
     }, 0)
