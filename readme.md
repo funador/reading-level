@@ -25,7 +25,7 @@ readingLevel(text2, 'full') // { sentences: 1,
 
 
 - all numeric values and punctuation are stripped out before analysis
-- pass the string 'full' as a second argument to get the breakdown
+- pass `'full'` as a second argument to get the breakdown
 - this seems to work with languages besides english, however I have no idea about the accuracy of the results
 
 ### test
