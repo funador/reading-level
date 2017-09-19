@@ -5,7 +5,7 @@
   "main": "reading-level.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/funador/twitter-streams.git"
+    "url": "git+https://github.com/funador/reading-level.git"
   },
   "scripts": {
     "test": "mocha"
@@ -16,5 +16,13 @@
     "Flesch-Kincaid"
   ],
   "author": "Jesse Heaslip",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sentence-tokenizer": "0.0.8",
+    "syllable": "^2.2.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.5.3"
+  }
 }
