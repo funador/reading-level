@@ -47,16 +47,16 @@ exports.readingLevel = (text, full) => {
 
   obj.rounded = Math.round(isNaN(obj.full) ? NaN : obj.full)
 
-  if(isNaN(obj.rounded)) {
-    obj.error = 'Either no sentences or words, please enter some text'
+  if (isNaN(obj.rounded)) {
+    obj.error = 'Either no sentences or words, please enter valid text'
   }
 
-  if(full === 'full') {
+  if (full === 'full') {
     return obj
   }
 
-  if(isNaN(obj.rounded)) {
-    return 'Either no sentences or words, please enter some text'
+  if (isNaN(obj.rounded)) {
+    return 'Either no sentences or words, please enter valid text'
   }
 
   return obj.rounded

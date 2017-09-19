@@ -12,8 +12,8 @@ const text4 = '0120131908 74123987419823'
 
 readingLevel(text1) // 3 
 readingLevel(text2) // 21
-readingLevel(text3) // 'Either no sentences or words, please enter some text'
-readingLevel(text4) // 'Either no sentences or words, please enter some text'
+readingLevel(text3) // 'Either no sentences or words, please enter valid text'
+readingLevel(text4) // 'Either no sentences or words, please enter valid text'
 
 readingLevel(text2, 'full') // { sentences: 1,
                             //   words: 7,
