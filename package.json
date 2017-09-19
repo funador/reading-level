@@ -1,0 +1,20 @@
+{
+  "name": "reading-level",
+  "version": "0.0.1",
+  "description": "Convert text to a reading level based on the Flesch-Kincaid scoring system",
+  "main": "reading-level.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/funador/twitter-streams.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "reading",
+    "level",
+    "Flesch-Kincaid"
+  ],
+  "author": "Jesse Heaslip",
+  "license": "MIT"
+}
