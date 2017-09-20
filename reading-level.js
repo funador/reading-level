@@ -26,9 +26,7 @@ exports.readingLevel = (text, full) => {
     obj.words += words.length
     
     // count up all the syllables
-    obj.syllables += words.reduce((total, word) => {
-      return total += syllable(word)
-    }, 0)
+    obj.syllables += words.reduce((total, word) => total += syllable(word), 0)
 
     return obj
 
