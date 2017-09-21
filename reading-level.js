@@ -40,13 +40,15 @@ exports.readingLevel = (text, full) => {
     sentences: sentences.length,
     words: counts.words,
     syllables: counts.syllables,
-    full: 0.39 * first + 11.8 * second - 15.59, 
+    unrounded: 0.39 * first + 11.8 * second - 15.59, 
   }
 
   obj.rounded = Math.round(isNaN(obj.full) ? NaN : obj.full)
 
+  const err = 'Either no sentences or words, please enter valid text'
+
   if (isNaN(obj.rounded)) {
-    obj.error = 'Either no sentences or words, please enter valid text'
+    obj.error = err
   }
 
   if (full === 'full') {
@@ -54,7 +56,7 @@ exports.readingLevel = (text, full) => {
   }
 
   if (isNaN(obj.rounded)) {
-    return 'Either no sentences or words, please enter valid text'
+    return err
   }
 
   return obj.rounded

@@ -1,6 +1,6 @@
 # reading-level
 
-Reading-level is a simple package that returns the numeric reading level of a sample text based on the [Flesch-Kincaid Grade Level Readability Formula](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests). 
+Reading-level returns the numeric reading level of a sample text based on the [Flesch-Kincaid Grade Level Readability Formula](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests). 
 
 ```js
 const { readingLevel } = require('reading-level')
@@ -18,7 +18,7 @@ readingLevel(text4) // 'Either no sentences or words, please enter valid text'
 readingLevel(text2, 'full') // { sentences: 1,
                             //   words: 7,
                             //   syllables: 20,
-                            //   full: 20.854285714285712,
+                            //   unrounded: 20.854285714285712,
                             //   rounded: 21 }
 
 ```
