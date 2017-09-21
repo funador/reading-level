@@ -43,7 +43,7 @@ exports.readingLevel = (text, full) => {
     unrounded: 0.39 * first + 11.8 * second - 15.59, 
   }
 
-  obj.rounded = Math.round(isNaN(obj.full) ? NaN : obj.full)
+  obj.rounded = Math.round(isNaN(obj.rounded) ? NaN : obj.rounded)
 
   const err = 'Either no sentences or words, please enter valid text'
 
