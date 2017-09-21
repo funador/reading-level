@@ -1,6 +1,6 @@
 {
   "name": "reading-level",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Convert text to a reading level based on the Flesch-Kincaid scoring system",
   "main": "reading-level.js",
   "repository": {

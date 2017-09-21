@@ -15,7 +15,7 @@ exports.readingLevel = (text, full) => {
 
   const counts = tokenSentences.reduce((obj, sentence) => {
     
-    // strip all punctuation and numbers from the sentences
+    // strip all punctuation and numbers from the sentence
     const words = sentence
                     .replace(/[^\w\s]|_/g, "")
                     .replace(/\s+/g, " ")
