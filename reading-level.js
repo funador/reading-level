@@ -37,13 +37,13 @@ exports.readingLevel = (text, full) => {
 
   const first = words / sentences
   const second = syllables / words
+  const unrounded = 0.39 * first + 11.8 * second - 15.59
 
   const result = {
-    sentences, words, syllables,
-    unrounded: 0.39 * first + 11.8 * second - 15.59, 
+    sentences, words, syllables, unrounded 
   }
 
-  result.rounded = Math.round(isNaN(result.unrounded) ? NaN : result.unrounded)
+  result.rounded = Math.round(isNaN(unrounded) ? NaN : unrounded)
 
   const err = 'Either no sentences or words, please enter valid text'
 
