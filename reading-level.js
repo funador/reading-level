@@ -6,16 +6,16 @@ exports.readingLevel = (text, full) => {
   const tokenizer = new Tokenizer('ChuckNorris')
   tokenizer.setEntry(text)
   
-  const sentences = tokenizer.getSentences()
-  
+  const tokenSentences = tokenizer.getSentences()
+             
   const tracker = {
     syllables: 0,
     words: 0
   }
 
-  const counts = sentences.reduce((obj, sentence) => {
+  const counts = tokenSentences.reduce((obj, sentence) => {
     
-    // strip all puncuation and numbers from the sentences
+    // strip all punctuation and numbers from the sentences
     const words = sentence
                     .replace(/[^\w\s]|_/g, "")
                     .replace(/\s+/g, " ")
@@ -33,32 +33,31 @@ exports.readingLevel = (text, full) => {
   }, tracker)
 
   const { words, syllables } = counts
+  const sentences = tokenSentences.length
 
-  const first = words / sentences.length
+  const first = words / sentences
   const second = syllables / words
 
-  const obj = {
-    sentences: sentences.length,
-    words,
-    syllables,
+  const result = {
+    sentences, words, syllables,
     unrounded: 0.39 * first + 11.8 * second - 15.59, 
   }
 
-  obj.rounded = Math.round(isNaN(obj.unrounded) ? NaN : obj.unrounded)
+  result.rounded = Math.round(isNaN(result.unrounded) ? NaN : result.unrounded)
 
   const err = 'Either no sentences or words, please enter valid text'
 
-  if (isNaN(obj.rounded)) {
-    obj.error = err
+  if (isNaN(result.rounded)) {
+    result.error = err
   }
 
-  if (full === 'full') {
-    return obj
+  if (full == 'full') {
+    return result
   }
 
-  if (isNaN(obj.rounded)) {
+  if (isNaN(result.rounded)) {
     return err
   }
 
-  return obj.rounded
+  return result.rounded
 }
