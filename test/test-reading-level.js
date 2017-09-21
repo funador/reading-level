@@ -39,7 +39,7 @@ describe('readingLevel', () => {
       assert.equal(1, result.sentences)
       assert.equal(7, result.words)
       assert.equal(20, result.syllables)
-      assert.equal(20.854285714285712, result.full)
+      assert.equal(20.854285714285712, result.unrounded)
       assert.equal(21, result.rounded)
       assert.equal(undefined, result.error)
     })

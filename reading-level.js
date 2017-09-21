@@ -32,18 +32,19 @@ exports.readingLevel = (text, full) => {
 
   }, tracker)
 
-  
-  const first = counts.words / sentences.length
-  const second = counts.syllables / counts.words
+  const { words, syllables } = counts
+
+  const first = words / sentences.length
+  const second = syllables / words
 
   const obj = {
     sentences: sentences.length,
-    words: counts.words,
-    syllables: counts.syllables,
+    words,
+    syllables,
     unrounded: 0.39 * first + 11.8 * second - 15.59, 
   }
 
-  obj.rounded = Math.round(isNaN(obj.rounded) ? NaN : obj.rounded)
+  obj.rounded = Math.round(isNaN(obj.unrounded) ? NaN : obj.unrounded)
 
   const err = 'Either no sentences or words, please enter valid text'
 
