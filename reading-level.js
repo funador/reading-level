@@ -23,20 +23,17 @@ exports.readingLevel = (text, full) => {
                     .split(' ')
                     .filter(letter => letter)
 
+    obj.syllables += words.reduce((total, word) => total += syllable(word), 0)
     obj.words += words.length
     
-    obj.syllables += words.reduce((total, word) => total += syllable(word), 0)
-
     return obj
 
   }, tracker)
 
   const { words, syllables } = counts
   const sentences = tokenSentences.length
-
-  const first = words / sentences
-  const second = syllables / words
-  const unrounded = 0.39 * first + 11.8 * second - 15.59
+  
+  const unrounded = 0.39 * (words / sentences) + 11.8 * (syllables / words) - 15.59
 
   const result = {
     sentences, words, syllables, unrounded 
