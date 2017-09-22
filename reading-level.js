@@ -33,16 +33,16 @@ exports.readingLevel = (text, full) => {
   const { words, syllables } = counts
   const sentences = tokenSentences.length
   const unrounded = 0.39 * (words / sentences) + 11.8 * (syllables / words) - 15.59
+  const rounded = Math.round(isNaN(unrounded) ? NaN : unrounded)
 
   const result = {
-    sentences, words, syllables, unrounded 
+    sentences, words, syllables, unrounded, rounded
   }
 
-  result.rounded = Math.round(isNaN(unrounded) ? NaN : unrounded)
-
   const err = 'Either no sentences or words, please enter valid text'
+  const nan = isNaN(result.rounded)
 
-  if (isNaN(result.rounded)) {
+  if (nan) {
     result.error = err
   }
 
@@ -50,7 +50,7 @@ exports.readingLevel = (text, full) => {
     return result
   }
 
-  if (isNaN(result.rounded)) {
+  if (nan) {
     return err
   }
 
