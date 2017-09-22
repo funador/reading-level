@@ -32,7 +32,6 @@ exports.readingLevel = (text, full) => {
 
   const { words, syllables } = counts
   const sentences = tokenSentences.length
-  
   const unrounded = 0.39 * (words / sentences) + 11.8 * (syllables / words) - 15.59
 
   const result = {
