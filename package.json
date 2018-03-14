@@ -18,7 +18,6 @@
   "author": "Jesse Heaslip",
   "license": "MIT",
   "dependencies": {
-    "sentence-tokenizer": "0.0.8",
     "syllable": "^2.2.0"
   },
   "devDependencies": {
