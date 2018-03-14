@@ -2,6 +2,19 @@ const syllable = require('syllable')
 const Tokenizer = require('sentence-tokenizer')
 
 exports.readingLevel = (text, full) => {
+  const err = 'Either no sentences or words, please enter valid text'
+
+  const result = {
+    sentences: 0, words: 0, syllables: 0, unrounded: NaN, rounded: NaN
+  }
+
+  if (!/[a-z]/i.test(text)) {
+    if (full == 'full') {
+      result.error = err
+      return result
+    }
+    return err
+  }
 
   const tokenizer = new Tokenizer('ChuckNorris')
   tokenizer.setEntry(text)
@@ -19,7 +32,6 @@ exports.readingLevel = (text, full) => {
     const words = sentence
                     .replace(/[^\w\s]|_/g, "")
                     .replace(/\s+/g, " ")
-                    .replace(/[0-9]/g, '')
                     .split(' ')
                     .filter(letter => letter)
 
@@ -35,11 +47,10 @@ exports.readingLevel = (text, full) => {
   const unrounded = 0.39 * (words / sentences) + 11.8 * (syllables / words) - 15.59
   const rounded = Math.round(isNaN(unrounded) ? NaN : unrounded)
 
-  const result = {
+  Object.assign(result, {
     sentences, words, syllables, unrounded, rounded
-  }
+  })
 
-  const err = 'Either no sentences or words, please enter valid text'
   const nan = isNaN(result.rounded)
 
   if (nan) {
